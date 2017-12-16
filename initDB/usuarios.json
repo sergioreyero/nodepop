@@ -1,0 +1,14 @@
+{                          
+    "usuarios": [
+        {
+            "nombre": "Sergio",
+            "email": "sergio@reyero.io",
+            "clave": "1234"
+        },
+        {
+            "nombre": "admin",
+            "email": "admin@reyero.com",
+            "clave": "password"
+        }
+    ]
+}    

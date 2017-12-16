@@ -1,0 +1,60 @@
+{                          
+    "anuncios": [
+        {
+            "nombre": "Bicicleta Fixie",
+            "venta": true,
+            "precio": 230.15,
+            "foto": "images/anuncios/bici.jpg",
+            "tags": ["lifestyle", "motor"]
+        },
+        {
+            "nombre": "iPhone X",
+            "venta": false,
+            "precio": 900.00,
+            "foto": "images/anuncios/iphone.jpg",
+            "tags": ["lifestyle", "mobile"]
+        },
+        {
+            "nombre": "Cargador MicroUSB",
+            "venta": true,
+            "precio": 5.50,
+            "foto": "images/anuncios/resourceNotFound.jpg",
+            "tags": ["work", "mobile"]
+        },
+        {
+            "nombre": "Altavoz Bluetooth",
+            "venta": false,
+            "precio": 78.00,
+            "foto": "images/anuncios/resourceNotFound.jpg",
+            "tags": ["mobile"]
+        },
+        {
+            "nombre": "Cascos Sony",
+            "venta": true,
+            "precio": 45.20,
+            "foto": "images/anuncios/resourceNotFound.jpg",
+            "tags": ["lifestyle"]
+        },
+        {
+            "nombre": "Libro 'Diario de Ana Frank'",
+            "venta": false,
+            "precio": 10.00,
+            "foto": "images/anuncios/resourceNotFound.jpg",
+            "tags": ["lifestyle"]
+        },
+        {
+            "nombre": "Lenovo Miix 510",
+            "venta": true,
+            "precio": 830.15,
+            "foto": "images/anuncios/resourceNotFound.jpg",
+            "tags": ["work", "mobile"]
+        },
+        {
+            "nombre": "Calendario 2018 - UNICEF",
+            "venta": false,
+            "precio": 20.00,
+            "foto": "images/anuncios/resourceNotFound.jpg",
+            "tags": ["lifestyle"]
+        }
+    ]
+}  
