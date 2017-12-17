@@ -22,6 +22,11 @@ app.set('port', port);
 if (cluster.isMaster) {
   const numCPUs = require('os').cpus().length;
 
+  cluster.on('exit', (worker,code, signal)=>{
+    console.log(`Worker ${worker.process.pid} detenido. Arrancamos nuevo worker`);
+    cluster.fork();
+  })
+
   for(let i = 0; i < numCPUs; i++) {
     cluster.fork();
   }
