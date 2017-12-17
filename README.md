@@ -3,26 +3,19 @@
 
 ### Despliegue
 
-1. Iniciar MongoDB
-````
+1. Iniciar MongoDB: 
 ./bin/mongod --dbpath <directory_to_store_data> --directoryperdb
-```
 
-2. Instalar paquetes npm
-```
+2. Instalar paquetes npm:
 npm install
-```
 
-3. Inicializar mockup DB
-```
+3. Inicializar mockup DB:
 npm run startDB
-```
 
-4. Arrancar el servidor
-```
+4. Arrancar el servidor:
 npm run start
-```
 
+Opcional - Modo cluster: npm run cluster
 
 ### Metodos GET:
 #### Listar anuncios con filtros
