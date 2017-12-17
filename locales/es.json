@@ -1,3 +1,12 @@
 {
-    "userNotFound" : "Usuario no encontrado"
+	"userNotFound": "Usuario no encontrado",
+	"incorrectPassword": "Clave incorrecta",
+	"loginError": "Error en la autenticación",
+	"registerError": "Error al registrar",
+	"signError": "Error al firmar token",
+	"execError": "Error en la ejecución",
+	"saveError": "Error al guardar",
+	"getAdsError": "Error al obtener anuncios",
+	"getTagsError": "Error al obtener tags",
+	"duplicateError": "Error key duplicada"
 }

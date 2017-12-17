@@ -1,3 +1,12 @@
 {
-    "userNotFound" : "User not found"
+	"userNotFound": "User not found",
+	"incorrectPassword": "Incorrect password",
+	"loginError": "Login error",
+	"registerError": "Register error",
+	"signError": "Sign error",
+	"execError": "Execute error",
+	"saveError": "Save error",
+	"getAdsError": "Get Ads Error",
+	"getTagsError": "Get Tags Error",
+	"duplicateError": "Duplicate Key error"
 }

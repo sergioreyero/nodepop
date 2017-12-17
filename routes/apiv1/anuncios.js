@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const jwtAuth = require('../../lib/jwtAuth');
+const customError = require('../../lib/customError');
 
 const Anuncio = require('../../models/Anuncio');
 
@@ -58,9 +59,8 @@ router.get('/', async (req, res, next) => {
     let rows = await Anuncio.list(filter, skip, limit, sort);
     res.json({ success: true, result: rows }); 
   } catch(err) {
-    err.message = 'adsNotFound';
-    err.status = 404;
-    next(err);
+    next(customError(res.__('getAdsError'), 404));
+    return;
   }
 });
 
@@ -86,9 +86,8 @@ router.get('/tags', async (req, res, next) => {
     res.json({ success: true, result: tag });
   }
   catch(err) {
-    err.message = 'tagsNotFound';
-    err.status = 404;
-    next(err);
+    next(customError(res.__('getTagsError'), 404));
+    return;
   }
 });
 
