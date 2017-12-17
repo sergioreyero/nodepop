@@ -17,7 +17,7 @@ const usuarioSchema = mongoose.Schema({
   },
   clave: {
     type: String,
-    require: true,
+    required: true,
   }
 });
 
