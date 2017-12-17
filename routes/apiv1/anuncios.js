@@ -4,10 +4,9 @@ const express = require('express');
 const router = express.Router();
 const jwtAuth = require('../../lib/jwtAuth');
 
-// cargar el modelo de Anuncio
 const Anuncio = require('../../models/Anuncio');
 
-// router.use(jwtAuth());
+router.use(jwtAuth());
 
 /**
  * GET /anuncios
@@ -15,7 +14,6 @@ const Anuncio = require('../../models/Anuncio');
  */
 router.get('/', async (req, res, next) => {
   try {
-    console.log(req.query);
     const filter = {};
     const skip = parseInt(req.query.start);
     const limit = parseInt(req.query.limit);
@@ -26,7 +24,7 @@ router.get('/', async (req, res, next) => {
     const precio = req.query.precio;
 
     if(tag) {
-      filer.tags = tag;
+      filter.tags = tag;
     }
 
     if(venta) {
@@ -38,42 +36,64 @@ router.get('/', async (req, res, next) => {
       filter.nombre = new RegExp("^" + nombre.toLowerCase(), "i");
     }
 
-    console.log("El precio es:  "+precio);
-
-  /*  if(precio)
-    {
-      filter.precio = {'$gte':'10','$lte':'50'};
+    if(precio){
+      if (precio.indexOf('-') === -1){
+        filter.precio = precio;
+      }
+      else {
+        const paramPrecio = precio.split('-');
+        if(paramPrecio[0]){
+         filter.precio = {'$gte': paramPrecio[0]};
+        }
+        if(paramPrecio[1]){
+          filter.precio = {'$lte': paramPrecio[1]};
+        }
+        if(paramPrecio[0] && paramPrecio[1])
+        {
+          filter.precio = {'$gte': paramPrecio[0], '$lte': paramPrecio[1]};
+        }
+      }
     }
-*/
-    if (precio) {
-       switch(precio)
-       {
-        case '10-50': 
-        filter.precio = {'$gte':'10','$lte':'50'};
-        break;
 
-        case '10-': filter.precio = {'$gte':'10'};
-        break;
-
-        case '-50': filter.precio = {'$lte':'50'};
-        break;
-
-        case '50': filter.precio = '50';
-        break;
-
-        default: 
-        console.log('Rango de precio no valido');
-        break;
-       }
-
-    }
-    
     let rows = await Anuncio.list(filter, skip, limit, sort);
     res.json({ success: true, result: rows }); 
   } catch(err) {
-    console.log('Error al recuperar anuncios', err);
-    next();
+    err.message = 'adsNotFound';
+    err.status = 404;
+    next(err);
   }
+});
+
+/**
+ * /GET anuncios/tags
+ * Todos los tags
+ */
+router.get('/tags', async (req, res, next) => {
+  try {
+    const rows = await Anuncio.tagList({});
+    let tag = new Array();
+    let n=0;
+
+    for (let i=0; i < rows.length; i++) {      
+      let row = rows[i].tags;
+        for(let m=0; m < row.length; m++) {
+          tag[n]=row[m];
+          n++;
+        }    
+    }
+    console.log(tag);
+    tag=tag.unique();
+    res.json({ success: true, result: tag });
+  }
+  catch(err) {
+    err.message = 'tagsNotFound';
+    err.status = 404;
+    next(err);
+  }
+});
+
+Array.prototype.unique=function(a){
+  return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
 });
 
 module.exports = router;

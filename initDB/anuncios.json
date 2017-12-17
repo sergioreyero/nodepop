@@ -18,42 +18,42 @@
             "nombre": "Cargador MicroUSB",
             "venta": true,
             "precio": 5.50,
-            "foto": "images/anuncios/resourceNotFound.jpg",
+            "foto": "images/anuncios/notFound.png",
             "tags": ["work", "mobile"]
         },
         {
             "nombre": "Altavoz Bluetooth",
             "venta": false,
             "precio": 78.00,
-            "foto": "images/anuncios/resourceNotFound.jpg",
+            "foto": "images/anuncios/notFound.png",
             "tags": ["mobile"]
         },
         {
             "nombre": "Cascos Sony",
             "venta": true,
             "precio": 45.20,
-            "foto": "images/anuncios/resourceNotFound.jpg",
+            "foto": "images/anuncios/notFound.png",
             "tags": ["lifestyle"]
         },
         {
             "nombre": "Libro 'Diario de Ana Frank'",
             "venta": false,
             "precio": 10.00,
-            "foto": "images/anuncios/resourceNotFound.jpg",
+            "foto": "images/anuncios/notFound.png",
             "tags": ["lifestyle"]
         },
         {
             "nombre": "Lenovo Miix 510",
             "venta": true,
             "precio": 830.15,
-            "foto": "images/anuncios/resourceNotFound.jpg",
+            "foto": "images/anuncios/notFound.png",
             "tags": ["work", "mobile"]
         },
         {
             "nombre": "Calendario 2018 - UNICEF",
             "venta": false,
             "precio": 20.00,
-            "foto": "images/anuncios/resourceNotFound.jpg",
+            "foto": "images/anuncios/notFound.png",
             "tags": ["lifestyle"]
         }
     ]

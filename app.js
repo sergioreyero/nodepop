@@ -1,14 +1,24 @@
+'use strict';
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var i18n = require('i18n');
 
 var app = express();
 
-// cargamos el conector a la base de datos
 require('./lib/connectMongoose');
+
+// inicializa i18n
+i18n.configure({
+  locales: ['en','es'],
+  defaultLocale: 'en',
+  directory: __dirname + '/locales'
+});
+app.use(i18n.init);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,14 +34,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); // sirve ficheros estáticos que estén en public
 
 // Cargamos nuestras rutas
-app.use('/',      require('./routes/index'));
-app.use('/users', require('./routes/users'));
+// app.use('/',      require('./routes/index'));
+// app.use('/users', require('./routes/users'));
 
 // Rutas del APIv1 
-app.use('/apiv1/register', require('./routes/apiv1/register'));
-//app.use('/apiv1/authenticate', require('./routes/apiv1/authenticate'));
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
-//app.use('/apiv1/usuarios', require('./routes/apiv1/usuarios'));
+app.use('/apiv1/usuarios', require('./routes/apiv1/usuarios'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -51,7 +59,7 @@ app.use(function(err, req, res, next) {
       `Not valid - ${errInfo.param} ${errInfo.msg}`;  // para otras peticiones
   }
 
-  res.status(err.status || 500);
+  
   
   if (isAPI(req)) { // si es un API devuelvo JSON
     res.json({ success: false, error: err.message });
@@ -62,6 +70,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
+  res.status(err.status || 500);
   res.render('error');
 });
 

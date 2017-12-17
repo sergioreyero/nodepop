@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const conn = mongoose.connection;
 
 const fs = require('fs');
+const hash = require('hash.js');
 
 const Anuncio = require('../models/Anuncio');
 const Usuario = require('../models/Usuario');
@@ -76,7 +77,7 @@ async function insertAnuncios() {
     let json = JSON.parse(fs.readFileSync(__dirname + "/anuncios.json", 'utf8')).anuncios;
 
     for(let i=0; i < json.length; i++){
-        console.log('Insertado registro de anuncio: '+ json[i].nombre);
+        console.log('Insertado registro de anuncio: '+ json[i].nombre);       
         await new Anuncio(json[i]).save();
     }
     console.log(json.length+ ' anuncios insertados');
@@ -86,6 +87,7 @@ async function insertUsuarios() {
     let json = JSON.parse(fs.readFileSync(__dirname + "/usuarios.json", 'utf8')).usuarios;
 
     for(let i=0; i < json.length; i++){
+        json[i].clave = hash.sha256().update(json[i].clave).digest('hex'); 
         await new Usuario(json[i]).save();
     }
     console.log('+ '+json.length+' usuarios insertados');
