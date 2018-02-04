@@ -11,7 +11,13 @@ https://www.sergioreyero.com
 https://nodepop.sergioreyero.com/images/anuncios/iphone.jpg
 
 * API en:
+https://nodepop.sergioreyero.com/
+
+Version 1:
 https://nodepop.sergioreyero.com/apiv1
+
+Despliegue sobre EC2 de AWS (t2.micro)
+-AMI: ubuntu-xenial-16.04-amd64-server-20180109 (ami-2581aa40)
 
 
 ### Despliegue
