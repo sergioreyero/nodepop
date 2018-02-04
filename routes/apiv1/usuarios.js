@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const hash = require('hash.js');
-const customError = require('../../lib/customError');
+const customError = require('../../lib/CustomError');
 
 const Usuario = require('../../models/Usuario');
 

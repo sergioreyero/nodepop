@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const jwtAuth = require('../../lib/jwtAuth');
-const customError = require('../../lib/customError');
+const customError = require('../../lib/CustomError');
 
 const Anuncio = require('../../models/Anuncio');
 
