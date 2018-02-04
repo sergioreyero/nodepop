@@ -1,5 +1,18 @@
 # **Nodepop**
-**API** correspondiente a la practica de NodeJS del MobileBootcamp KeepCoding.
+**API** correspondiente a la práctica de NodeJS del MobileBootcamp KeepCoding.
+
+### Práctica DevOps
+
+* Web estatica en:
+https://www.sergioreyero.com
+(18.219.99.35)
+
+* Servir estáticos con cabecera personalizada "X-Owner:SergioRB"
+https://nodepop.sergioreyero.com/images/anuncios/iphone.jpg
+
+* API en:
+https://nodepop.sergioreyero.com/apiv1
+
 
 ### Despliegue
 
